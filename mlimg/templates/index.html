@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MLimage</title>
+    <script src="https://kit.fontawesome.com/5b266e7995.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            background-color: lightblue;
+            width: 100%;
+            height: 100%;
+        }
+        .app{
+            margin: 0 auto;
+            width: 90%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .app.GET .titulo{
+            width: 100%;
+            padding: 5px 0px;
+            text-align: center;
+            margin: 15px 0px;
+            font-size: 25px;
+            color: black;
+            border-radius: 20px;
+            box-shadow: 0px 15px black;
+            animation: normal titulo 1s;
+        }
+        .app.GET .caixa{
+            width: 100%;
+            height: 250px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 0 20px black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: normal caixa 4s;
+        }
+        .app.GET .caixa p{
+            width: 80%;
+            height: 90%;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 35px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .app.GET .formulario{
+            z-index: 3;
+            margin-top: 100px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .app.GET #id_file{
+            display: none;
+        }
+        .app.GET .botao{
+            position: absolute;
+            bottom: -75px;
+            width: 150px;
+            height: 150px;
+            background-color: white;
+            box-shadow: 0 0 20px;
+            border-radius: 50%;
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: infinite botao 1s alternate;
+        }
+        .app.GET .btn{
+            width: 150px;
+            height: 60px;
+            border: none;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 0 10px black;
+        }
+        .app.GET .tag{
+            width: 100%;
+            height: 80px;
+            margin-top: 30px;
+            font-size: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            box-shadow: 5px 5px black;
+            background-color: white;
+        }
+
+        .app.POST .titulo{
+            width: 100%;
+            padding: 5px 0px;
+            text-align: center;
+            margin: 15px 0px;
+            font-size: 25px;
+            color: black;
+            border-radius: 20px;
+            box-shadow: 0px 15px black;
+            animation: normal titulo 1s;
+        }
+        .app.POST .caixa{
+            width: 100%;
+            height: 250px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 0 20px black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: normal caixa 4s;
+        }
+        .app.POST .caixa p{
+            width: 80%;
+            height: 90%;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 35px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .app.POST .formulario{
+            display: none;
+        }
+        .app.POST #id_file{
+            display: none;
+        }
+        .app.POST .botao{
+            position: absolute;
+            bottom: -42px;
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            box-shadow: 0 0 20px;
+            border-radius: 50%;
+            font-size: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: infinite botao 1s alternate;
+        }
+        .app.POST .btn{
+            width: 150px;
+            height: 60px;
+            border: none;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 0 10px black;
+        }
+        .app.POST .tag{
+            width: 100%;
+            height: 80px;
+            margin-top: 30px;
+            font-size: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            box-shadow: 5px 5px black;
+            background-color: white;
+        }
+
+        @keyframes titulo {
+            0%{
+                font-size: 0px;
+                width: 0px;
+                height: 0px;
+            }
+            50%{
+                font-size: 0px;
+                height: 0px;
+                width: 100%;
+            }
+            80%{
+                font-size: 50px;
+            }
+        }
+
+        @keyframes caixa {
+            0%{
+                height: 0px;
+                color: transparent;
+            }
+            20%{
+                height:0px;
+                color: transparent;
+            }
+            30%{
+                color: transparent;
+            }
+        }
+
+        @keyframes botao {
+            0%{
+                transform: rotate(-25deg);
+            }
+            100%{
+                transform: rotate(25deg);
+            }
+        }
+        label[for="id_file"]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="app {{modo}}">
+        <h3 class="titulo">ML image Analisador</h3>
+        <div class="caixa">
+            <p>{{msg}}</p>
+            {% if modo == "GET" %}
+                <label class="botao" for="id_file"><i class="fa-solid fa-camera"></i></label>
+            {% else %}
+                <label class="botao" for="id_file"><i class="fa-solid fa-arrow-rotate-left"></i></label>
+            {% endif %}
+        </div>
+        <form class="formulario" action="." method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+            <input class="btn" type="submit" value="PROCESSAR" />
+        </form>
+        <div class="tag">
+            <p>IA treinada com o dataset Fashion MNIST</p>
+            <p>Stefan - Natanna - Douglas</p>
+        </div>
+    </div>
+    <script>
+        window.onload = () =>{
+            let img = document.querySelector("#id_file");
+            let caixa = document.querySelector(".caixa");
+            let botao = document.querySelector(".botao");
+            if(img != null){
+                img.addEventListener("change",()=>{
+                    let btn = document.querySelector(".btn");
+                    if(img.value != ""){
+                        btn.style.width = "100%";
+                        btn.style.backgroundColor = "lightgreen";
+                    }
+                })
+            }
+            botao.addEventListener("click",()=>{
+                console.log(botao.children)
+                if(botao.children[0].className == "fa-solid fa-arrow-rotate-left"){
+                    window.location.href = "/";
+                }
+            })
+            ajustarTela();
+            window.addEventListener("resize",ajustarTela);
+            function ajustarTela(){
+                if(screen.width < 650 ) caixa.style.height = "350px";
+                else caixa.style.height = "250px";
+            }
+        }
+    </script>
+</body>
+</html>
